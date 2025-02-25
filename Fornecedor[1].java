@@ -2,9 +2,14 @@ public class Fornecedor extends Pessoa {
     private double valorCredito;
     private double valorDivida;
 
-    //constructor
     public Fornecedor(String nome, String telefone, double valorCredito, double valorDivida) {
         super(nome, telefone);
+        if (valorCredito < 0.0) {
+            throw new IllegalArgumentException("Valor de crédito inválido");
+        }
+        if (valorDivida < 0.0) {
+            throw new IllegalArgumentException("Valor de dívida inválido");
+        }
         this.valorCredito = valorCredito;
         this.valorDivida = valorDivida;
     }
@@ -14,6 +19,9 @@ public class Fornecedor extends Pessoa {
     }
 
     public void setValorCredito(double valorCredito) {
+        if (valorCredito < 0.0) {
+            throw new IllegalArgumentException("Valor de crédito inválido");
+        }
         this.valorCredito = valorCredito;
     }
 
@@ -22,6 +30,9 @@ public class Fornecedor extends Pessoa {
     }
 
     public void setValorDivida(double valorDivida) {
+        if (valorDivida < 0.0) {
+            throw new IllegalArgumentException("Valor de dívida inválido");
+        }
         this.valorDivida = valorDivida;
     }
 
@@ -31,6 +42,8 @@ public class Fornecedor extends Pessoa {
 
     @Override
     public String toString() {
-        return super.toString() + ", Valor Crédito: " + valorCredito + ", Valor Dívida: " + valorDivida + ", Saldo: " + obterSaldo();
+        return super.toString() + ", Valor Crédito: " + valorCredito +
+                ", Valor Dívida: " + valorDivida +
+                ", Saldo: " + obterSaldo();
     }
 }
