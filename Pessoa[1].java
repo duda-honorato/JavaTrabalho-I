@@ -3,10 +3,10 @@ public abstract class Pessoa {
     private String telefone;
 
     public Pessoa(String nome, String telefone) {
-        if (nome.isEmpty()) {
+        if (nome == null || nome.trim().isEmpty()) {
             throw new IllegalArgumentException("Nome inválido");
         }
-        if (telefone.isEmpty()) {
+        if (telefone == null || telefone.trim().isEmpty()) {
             throw new IllegalArgumentException("Telefone inválido");
         }
         this.nome = nome;
@@ -18,7 +18,7 @@ public abstract class Pessoa {
     }
 
     public void setNome(String nome) {
-        if (nome.isEmpty()) {
+        if (nome == null || nome.trim().isEmpty()) {
             throw new IllegalArgumentException("Nome inválido");
         }
         this.nome = nome;
@@ -29,7 +29,7 @@ public abstract class Pessoa {
     }
 
     public void setTelefone(String telefone) {
-        if (telefone.isEmpty()) {
+        if (telefone == null || telefone.trim().isEmpty()) {
             throw new IllegalArgumentException("Telefone inválido");
         }
         this.telefone = telefone;
